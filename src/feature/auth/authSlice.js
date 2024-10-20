@@ -62,16 +62,14 @@ const authSlice = createSlice({
       })
       .addCase(userVerify_email_by_otpApiSlice.fulfilled, (state, action) => {
         state.loader = false;
+      console.log(action.payload);
+      
 
         state.user = action.payload.getUpdatedDataForgetPassword
           ? (state.forgetPassword = true)
           : (state.accountVerify = true);
 
-        state.user = 
-          action.payload.getUpdatedDataForgetPassword
-        
-          ? action.payload.getUpdatedDataForgetPassword
-          : action.payload.getUpdatedDataAccountVerify;
+        state.user = action.payload.getUpdatedDataForgetPassword ? action.payload.getUpdatedDataForgetPassword : action.payload.getUpdatedDataAccountVerify;
 
         localStorage.setItem(
           "RegisterUser",

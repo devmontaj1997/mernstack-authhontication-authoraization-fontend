@@ -19,8 +19,11 @@ export const UserRegisterApiSlice = createAsyncThunk(
 export const userVerify_email_by_otpApiSlice = createAsyncThunk(
   "authSlice/userVerify_email_by_otpApiSlice",
   async (data) => {
+    console.log(data);
     try {
       const response = await API.post("/users/verify_email_by_otp", data);
+
+      
       
       return response.data;
     } catch (error) {
